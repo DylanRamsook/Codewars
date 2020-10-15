@@ -7,10 +7,11 @@ public class Kata
   {
     string encodedString = "";      //Create empty string to return encoded value  
     System.Console.WriteLine(word); //Display word for testing purposes
-
-    foreach(char letter in word){  // For each char in word
-      int count = word.ToLower().Split(letter).Length - 1; //Count occurences of character in word and ignore case
-      System.Console.WriteLine(count); // Output count
+    string lowerWord = word.ToLower();
+    
+    foreach(char letter in lowerWord){  // For each char in word
+      int count = lowerWord.Split(letter).Length - 1; //Count occurences of character in word and ignore case
+      System.Console.WriteLine(letter+ ": " + count); // Output count
       if(count == 1 ){  
         encodedString += '(' ; //If the count is 1, the character occurence was unique.  
       }
@@ -18,6 +19,9 @@ public class Kata
         encodedString +=')' ; //Else, it occured multiple times.
       }
     }
+    
+    System.Console.WriteLine(encodedString) ; 
+    
     return encodedString;
   }
 }
